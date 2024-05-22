@@ -7,7 +7,6 @@ const CreateOrderController = async (req: Request, res: Response) => {
     const OrderData = req.body;
     const { error } = OrderValidatoionJoi.validate(OrderData);
 
-
     const result = await OrderService.CreatOrderService(req.body);
 
     if (error) {
@@ -17,7 +16,7 @@ const CreateOrderController = async (req: Request, res: Response) => {
         error: error.details,
       });
     }
-    
+
     res.json({
       success: true,
       message: 'Order created successfully!',
